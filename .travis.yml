@@ -1,0 +1,25 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rkshjoshi/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true rkshjoshi/react-test npm run test
+
+after_success:
+  - docker build -t rkshjoshi/multi-client ./client
+  - docker build -t rkshjoshi/multi-nginx ./nginx
+  - docker build -t rkshjoshi/multi-worker ./worker
+  - docker build -t rkshijoshi/multi-server ./server
+
+# define docker login with environment  variable of travis
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" -password-stdin
+
+#build images and push it to docker hun
+
+  - docker push rkshjoshi/multi-client
+  - docker push rkshijoshi/multi-nginx
+  - docker push rkshjoshi/multi-worker
+  - docker pus rkshjoshi/multi-server
