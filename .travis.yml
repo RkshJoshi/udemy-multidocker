@@ -15,7 +15,7 @@ after_success:
   - docker build -t rkshijoshi/multi-server ./server
 
 # define docker login with environment  variable of travis
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" -password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
 #build images and push it to docker hun
 
