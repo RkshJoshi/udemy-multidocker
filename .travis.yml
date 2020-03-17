@@ -9,17 +9,19 @@ script:
   - docker run -e CI=true rkshjoshi/react-test npm run test
 
 after_success:
-  - docker build -t rkshjoshi/multi-client ./client
-  - docker build -t rkshjoshi/multi-nginx ./nginx
-  - docker build -t rkshjoshi/multi-worker ./worker
-  - docker build -t rkshijoshi/multi-server ./server
+  - docker build -t rakeshjoshi/multi-client ./client
+  - docker build -t rakeshjoshi/multi-nginx ./nginx
+  - docker build -t rakeshjoshi/multi-worker ./worker
+  - docker build -t rakeshijoshi/multi-server ./server
 
 # define docker login with environment  variable of travis
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" -password-stdin
 
-#build images and push it to docker hun
+#build images and push it to docker hub
 
-  - docker push rkshjoshi/multi-client
-  - docker push rkshijoshi/multi-nginx
-  - docker push rkshjoshi/multi-worker
-  - docker pus rkshjoshi/multi-server
+  - docker push rakeshjoshi/multi-client
+  - docker push rakeshjoshi/multi-nginx
+  - docker push rakeshjoshi/multi-worker
+  - docker pus rakeshjoshi/multi-server
+
+
