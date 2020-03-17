@@ -12,7 +12,7 @@ after_success:
   - docker build -t rakeshjoshi/multi-client ./client
   - docker build -t rakeshjoshi/multi-nginx ./nginx
   - docker build -t rakeshjoshi/multi-worker ./worker
-  - docker build -t rakeshijoshi/multi-server ./server
+  - docker build -t rakeshjoshi/multi-server ./server
 
 # define docker login with environment  variable of travis
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
