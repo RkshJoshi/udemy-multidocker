@@ -22,6 +22,6 @@ after_success:
   - docker push rakeshjoshi/multi-client
   - docker push rakeshjoshi/multi-nginx
   - docker push rakeshjoshi/multi-worker
-  - docker pus rakeshjoshi/multi-server
+  - docker push rakeshjoshi/multi-server
 
 
